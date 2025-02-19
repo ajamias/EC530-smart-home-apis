@@ -18,10 +18,10 @@ public:
 	User *updateUsername(const std::string username);
 	User *updateEmail(const std::string email);
 	User *updatePhoneNumber(const std::string phone_number);
-	User *addHousesOwned(const House *const house);
-	User *removeHousesOwned(const House *const house);
-	User *addHousesResided(const House *const house);
-	User *removeHousesResided(const House *const house);
+	User *addHousesOwned(House *const house);
+	User *removeHousesOwned(House *const house);
+	User *addHousesResided(House *const house);
+	User *removeHousesResided(House *const house);
 
 	static User *findUser(const std::string email, const uint8_t passwordCypher[32]);
 

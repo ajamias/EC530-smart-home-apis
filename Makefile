@@ -10,15 +10,16 @@ SRCS = $(wildcard $(SRC_DIR)/*.cpp)
 
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
 
-TARGET = $(BUILD_DIR)/app
+TARGETS = test
 
 .PHONY: all clean
 
-all: $(TARGET)
+all: $(TARGETS)
 
-$(TARGET): $(OBJS)
+$(TARGETS): $(OBJS)
 	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(OBJS) tests/test.cpp -o $(TARGET)
+	$(CXX) $(CXXFLAGS) -c tests/$@.cpp -o $(BUILD_DIR)/$@.o
+	$(CXX) $(OBJS) $(BUILD_DIR)/$@.o -o $@
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(BUILD_DIR)

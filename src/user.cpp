@@ -1,6 +1,6 @@
 #include "user.hpp"
 
-User::User() {}
+User::User() : uuid(rand()) {}
 User::~User() {}
 
 User *User::updateFirstName(const std::string first_name)
@@ -43,23 +43,23 @@ User *User::updatePhoneNumber(const std::string phone_number)
 	return this;
 }
 
-User *User::addHousesOwned(const House *const house)
+User *User::addHousesOwned(House *const house)
 {
 	if (houses_owned.find(house) != houses_owned.end())
-		return nullptr;
-
-	return this;/
-}
-
-User *User::removeHousesOwned(const House *const house)
-{
-	if (houses_owned.empty() || houses_owned.find(house) == end())
 		return nullptr;
 
 	return this;
 }
 
-User *User::addHousesResided(const House *const house)
+User *User::removeHousesOwned(House *const house)
+{
+	if (houses_owned.empty() || houses_owned.find(house) == houses_owned.end())
+		return nullptr;
+
+	return this;
+}
+
+User *User::addHousesResided(House *const house)
 {
 	if (houses_resided.find(house) != houses_resided.end())
 		return nullptr;
@@ -67,7 +67,7 @@ User *User::addHousesResided(const House *const house)
 	return this;
 }
 
-User *User::removeHousesResided(const House *const house)
+User *User::removeHousesResided(House *const house)
 {
 	if (houses_resided.empty() || houses_resided.find(house) == houses_resided.end())
 		return nullptr;
@@ -75,7 +75,7 @@ User *User::removeHousesResided(const House *const house)
 	return this;
 }
 
-User *User::findUser(const uint64_t email, const uint8_t passwordCypher[32])
+User *User::findUser(const std::string email, const uint8_t passwordCypher[32])
 {
 	// connect to database and return User
 
