@@ -12,18 +12,18 @@ Room *Room::changeName(const std::string new_name)
 	return this;
 }
 
-Room *Room::addDevice(const Device *const device)
+Room *Room::addDevice(Device *const device)
 {
-//	if (devices.find(device) != devices.end())
-//		return nullptr;
+	if (devices.find(device) != devices.end())
+		return nullptr;
 
 	return this;
 }
 
-Room *Room::removeDevice(const Device *const device)
+Room *Room::removeDevice(Device *const device)
 {
-//	if (devices.empty() || devices.find(device) == devices.end())
-//		return nullptr;
+	if (devices.empty() || devices.find(device) == devices.end())
+		return nullptr;
 
 	return this;
 }

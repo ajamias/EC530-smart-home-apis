@@ -1,7 +1,11 @@
 #include "house.hpp"
 #include <stdlib.h>
 
-House::House(std::string address) : uuid(rand()), address(address) {}
+House::House(std::string address) : uuid(rand()), address(address)
+{
+	floors = 1;
+}
+
 House::~House() {}
 
 House *House::addFloor()

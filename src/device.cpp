@@ -1,7 +1,11 @@
 #include "device.hpp"
 #include <stdlib.h>
 
-Device::Device(enum device_type type) : uuid(rand()), type(type) {}
+Device::Device(enum device_type type) : uuid(rand()), type(type)
+{
+	is_connected = false;
+	is_active = false;
+}
 
 Device::~Device() {}
 

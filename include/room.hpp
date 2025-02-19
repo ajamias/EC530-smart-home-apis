@@ -25,8 +25,8 @@ public:
 	~Room();
 
 	Room *changeName(const std::string new_name);
-	Room *addDevice(const Device *const device);
-	Room *removeDevice(const Device *const device);
+	Room *addDevice(Device *const device);
+	Room *removeDevice(Device *const device);
 	static Room *findRoom(const uint64_t uuid);
 
 private:
